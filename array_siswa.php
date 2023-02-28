@@ -25,8 +25,13 @@ $ar_nilai = [$ns1,$ns2,$ns3];
     $nomor = 1;
     foreach ($ar_nilai as $nilai){
         echo '<tr><td>' .$nomor. '</td>';
-        echo '<td>.$nilai['nim'].'</td>';'
-        echo '<tr/>';
+        echo '<td>' .$nilai['nim']. '</td>';
+        echo '<td>' .$nilai['uts']. '</td>';
+        echo '<td>' .$nilai['uas']. '</td>';
+        echo '<td>' .$nilai['tugas']. '</td>';
+        $nilai_akhir = ($nilai['uts'] + $nilai['uas'] + $nilai['tugas'])/3;
+        echo '<td>'.number_format($nilai_akhir,2,',','.').'</td>';
+        echo '</tr>';
         $nomor++;
     }
     ?>
