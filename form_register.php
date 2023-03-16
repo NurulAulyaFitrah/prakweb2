@@ -82,6 +82,25 @@
     </div>
   </div> 
   <div class="form-group row">
+    <label for="tempat" class="col-4 col-form-label">Tempat Domisili</label> 
+    <div class="col-8">
+      <select id="tempat" name="tempat" class="custom-select">
+        <option value="Jakarta">Jakarta</option>
+        <option value="Depok">Depok</option>
+        <option value="Bogor">Bogor</option>
+        <option value="Tanggerang">Tanggerang</option>
+        <option value="Bekasi">Bekasi</option>
+        <option value="Lainnya">Lainnya</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="email" class="col-4 col-form-label">Email</label> 
+    <div class="col-8">
+      <input id="email" name="email" type="text" class="form-control">
+    </div>
+  </div> 
+  <div class="form-group row">
     <div class="offset-4 col-8">
       <button name="submit" type="submit" class="btn btn-primary">Submit</button>
     </div>
@@ -101,6 +120,8 @@ if (isset($_POST["submit"])){
   $jk = $_POST['jk'];
   $studi = $_POST['studi'];
   $skill = $_POST['skill'];
+  $tempat = $_POST['tempat'];
+  $email = $_POST['email'];
 
   $nilai = 0;
   foreach ($skill as $value){
@@ -117,21 +138,42 @@ if (isset($_POST["submit"])){
         case 'bootstrap' :
           $nilai += 20;
           break;
-          case 'php' :
-            $nilai += 30;
-            break;
-          case 'python' :
-            $nilai += 30;
-            break;
-          case 'java' :
-            $nilai += 50;
-            break;
-          default :
-            $nilai += 0;
-            break;
-      }
+        case 'php' :
+          $nilai += 30;
+          break;
+        case 'python' :
+          $nilai += 30;
+          break;
+        case 'java' :
+          $nilai += 50;
+          break;
+        default :
+          $nilai += 0;
+          break;
+    }
+
+    
    }
+
+   function predikat($nilai){
+      if ($nilai >= 170){
+          return "Sangat Baik";
+      }elseif ($nilai >= 100){
+          return "Baik";
+      }elseif ($nilai >= 60){
+          return "Cukup";
+      }elseif ($nilai >= 40){
+          return "Kurang";
+      }elseif ($nilai >= 0){
+          return "Tidak memadai";
+      }else{
+          return "I(Tidak ada nilai)";
+      }
+    }
+    $predikat = predikat($nilai);
 }
+
+
 ?>
 
 <?php
@@ -143,7 +185,11 @@ echo "<br/>Jenis Kelamin : $jk";
 echo "<br/>Program : $studi";
 echo "<br/>Skill : ";
 foreach ($skill as $value){
-    echo $value . ",";
+  echo $value . ",";
 }
+echo "<br/>Tempat Domisili : $tempat";
+echo "<br/>Predikat : $predikat";
+echo "<br/>Email : $email";
+
 echo "<br/>Skor Nilai : $nilai";
 ?>
