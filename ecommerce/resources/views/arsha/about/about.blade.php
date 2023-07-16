@@ -8,8 +8,8 @@
 
     @section('content')
 <h3 style="text-align: center">
-Nama : Farhatul atqiya<br>
-Nim : 0110122094 <br>
+Nama : Nurul Aulya Fitrah Nasution<br>
+Nim : 0110122020 <br>
 Rombel : SI01 <br>
-Asdos : Kak Farhan </h3>
+Asdos : Ka Farhan </h3>
 @endsection

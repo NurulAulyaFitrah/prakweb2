@@ -50,6 +50,8 @@ Route::post('/formoutput', [FormInputController::class, 'formoutput']);
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/produk', [ProdukController::class, 'index']);
+    Route::get('/produk/create', [ProdukController::class, 'create']);
+    Route::get('/produk/store', [ProdukController::class, 'store']);
 
 });
 
@@ -59,3 +61,6 @@ Route::prefix('arsha')->group(function () {
 
 });
 //ini route untuk frontend atau user
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
